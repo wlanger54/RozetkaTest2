@@ -5,10 +5,10 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class SmartPhoneTvAndElectronic {
 
-    private SelenideElement smartPhone = $x("//ul[@class='portal-grid portal-grid_type_1_3']//a[text()=' Смартфоны ']");
+    private SelenideElement smartPhone = $x("//ul[@class='portal-grid portal-grid_type_1_3']//a[text()=' Телефоны, наушники, GPS ']");
 
-    public MobilePhone_Page3 redirectOnSmartPhone(){
+    public PhoneHeadphonesGps redirectOnSmartPhone(){
         smartPhone.scrollTo().click();
-        return page(MobilePhone_Page3.class);
+        return page(PhoneHeadphonesGps.class);
     }
 }

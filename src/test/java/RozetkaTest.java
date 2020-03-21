@@ -23,6 +23,7 @@ public class RozetkaTest {
     public void runRozetka() throws Exception {
        new MainPage().redirectOn_smartPhoneTvAndElectronic()
                .redirectOnSmartPhone()
+               .redirectOnMobilePhone()
                .clickOnButtonMoreProducts()
                .clickOnButtonMoreProducts()
                .getNameAndPriceTopProducts()
