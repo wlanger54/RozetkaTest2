@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -12,7 +13,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class MobilePhone_Page3 {
 
 
-    private SelenideElement moreProducts = $x("//div[@class='catalog-more']//span[text()=' Показать еще 60 товаров ']");
+    private SelenideElement moreProducts = $x("//div[@class='catalog-more']//span[text()=' Показать еще 60 товаров ']"),
+            namePage = $x("//h1[text()=' Мобильные телефоны ']");
     private ElementsCollection topProducts = $$x("//span[contains(@class,'promo-label_type_popularity')]/ancestor::div[@class='goods-tile']");
 
     private SelenideElement selectFilter = $(By.xpath("//select[@class='select-css ng-untouched ng-pristine ng-valid']")),
@@ -26,6 +28,7 @@ public class MobilePhone_Page3 {
 
 
     public MobilePhone_Page3 clickOnButtonMoreProducts() {
+        namePage.shouldBe(Condition.visible);
         moreProducts.click();
         return this;
     }

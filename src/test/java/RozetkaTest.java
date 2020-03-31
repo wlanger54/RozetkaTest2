@@ -37,8 +37,6 @@ public class RozetkaTest {
 
 
 
-
-
     @AfterMethod
     public void turnDown(){
         close();
