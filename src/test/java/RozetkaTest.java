@@ -26,8 +26,9 @@ public class RozetkaTest {
                .redirectOnMobilePhone()
                .clickOnButtonMoreProducts()
                .clickOnButtonMoreProducts()
-               .getNameAndPriceTopProducts()
-               .saveInFileNameAndPrice()
+               .getNameAndPriceTopProducts();
+
+             new MobilePhone_Page3().saveInFileNameAndPrice()
                .openSelectFilter()
                .sortPageFromCheapToExpensive()
                .getProductsFromCheapToExpensive();

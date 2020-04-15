@@ -24,7 +24,6 @@ public class MobilePhone_Page3 {
 
 
 
-    private ArrayList<String> listTopProducts = new ArrayList<String>();
 
 
     public MobilePhone_Page3 clickOnButtonMoreProducts() {
@@ -34,7 +33,10 @@ public class MobilePhone_Page3 {
     }
 
 
-    public MobilePhone_Page3 getNameAndPriceTopProducts() {
+// Создали список названий и цен
+
+    public ArrayList<String> getNameAndPriceTopProducts() {
+         ArrayList<String> listTopProducts = new ArrayList<String>();
         if (topProducts.size() > 0) {
             for (SelenideElement divTop : topProducts) {
                 String name = divTop.$x(".//a[@class='goods-tile__heading']").getAttribute("title");
@@ -45,11 +47,13 @@ public class MobilePhone_Page3 {
             }
 
         }
-        return this;
+        return listTopProducts;
     }
 
+// Записали в файл наши названия и цены
 
     public MobilePhone_Page3 saveInFileNameAndPrice() throws Exception {
+         ArrayList<String> listTopProducts = new ArrayList<String>();
         FileWriter fileWriter = new FileWriter("C:\\autodoc\\result.txt");
         for (String divTopWrite : listTopProducts) {
             fileWriter.write(divTopWrite);
@@ -75,7 +79,7 @@ public class MobilePhone_Page3 {
 
 
 
-    public MobilePhone_Page3 getProductsFromCheapToExpensive(){
+    public ArrayList<Double> getProductsFromCheapToExpensive(){                // Создали список с ценами
         ArrayList<Double> listForSortProducts = new ArrayList<Double>();
         for (SelenideElement min:productsFromCheapOnExpensive) {
             double price = Double.parseDouble(min.getText().replaceAll("\\s*", ""));
@@ -84,13 +88,13 @@ public class MobilePhone_Page3 {
             System.out.println(price);
         }
 
-        ArrayList<Double> listForSortProducts_2 = new ArrayList(listForSortProducts);
+        ArrayList<Double> listForSortProducts_2 = new ArrayList(listForSortProducts);    // создали аналг списка с ценами . Применили к нему сортировку и сранили с первым
         Collections.sort(listForSortProducts_2);
         Assert.assertEquals(listForSortProducts, listForSortProducts_2);
 
         System.out.println(listForSortProducts_2);
 
-        return this;
+        return listForSortProducts;
 
     }
 
